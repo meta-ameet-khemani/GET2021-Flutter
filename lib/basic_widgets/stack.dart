@@ -1,0 +1,58 @@
+import 'package:flutter/material.dart';
+
+class MyStack extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Stack(
+          fit: StackFit.passthrough,
+          overflow: Overflow.visible,
+          children: <Widget>[
+            // Max Size Widget
+            Container(
+              height: 300,
+              width: 400,
+              color: Colors.green,
+              child: Center(
+                child: Text(
+                  'Top Widget: Green',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 30,
+              right: 20,
+              child: Container(
+                height: 100,
+                width: 150,
+                color: Colors.blue,
+                child: Center(
+                  child: Text(
+                    'Middle Widget',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+                top: 30,
+                left: 20,
+                child: Container(
+                  height: 100,
+                  width: 150,
+                  color: Colors.orange,
+                  child: Center(
+                    child: Text(
+                      'Bottom Widget',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ),
+                )),
+          ],
+        ),
+      ),
+    );
+  }
+}
