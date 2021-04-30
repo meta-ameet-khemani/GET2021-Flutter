@@ -12,8 +12,7 @@ class MainDrawer extends StatelessWidget {
       children: [
         UserAccountsDrawerHeader(
           currentAccountPicture: CircleAvatar(
-            backgroundImage: NetworkImage(
-                'https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ'),
+            backgroundImage: AssetImage('assets/images/profile.jpg'),
           ),
           accountName: Text(
             'Ameet Khemani',
@@ -87,6 +86,22 @@ class MainDrawer extends StatelessWidget {
             style: TextStyle(fontSize: 25),
           ),
           onTap: () => changeWidget('text'),
+        ),
+        ListTile(
+          leading: Icon(Icons.text_fields),
+          title: Text(
+            'Snackbar',
+            style: TextStyle(fontSize: 25),
+          ),
+          onTap: () => changeWidget('snackbar'),
+        ),
+        ListTile(
+          leading: Icon(Icons.text_fields),
+          title: Text(
+            'TabBar',
+            style: TextStyle(fontSize: 25),
+          ),
+          onTap: () => changeWidget('tabbar'),
         ),
       ],
     );

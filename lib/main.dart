@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:single_app_for_basic_widgets/basic_widgets/tab_bar.dart';
+import './basic_widgets/snack_bar.dart';
 import './basic_widgets/list/grid.dart';
 import './basic_widgets/list/long.dart';
 import './basic_widgets/list/basic.dart';
@@ -22,6 +24,7 @@ class SingleAppForAll extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Homepage(),
+
     );
   }
 }
@@ -76,6 +79,16 @@ class _HomepageState extends State<Homepage> {
         case "text":
           widgetToShow = MyText();
           appBarTitle = "Text Widget";
+          break;
+
+        case "snackbar":
+          widgetToShow = MySnackBar();
+          appBarTitle = "Snackbar Widget";
+          break;
+
+        case "tabbar":
+          widgetToShow = MyTabBar();
+          appBarTitle = "Tabbar Widget";
           break;
 
         default:
