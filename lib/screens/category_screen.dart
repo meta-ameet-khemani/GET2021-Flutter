@@ -14,7 +14,7 @@ class CategoryScreen extends StatelessWidget {
         padding: const EdgeInsets.all(15.0),
         child: GridView(
           children: CATEGORY_ITEM.map((catItem) =>
-            CategoryItem(catItem.title, catItem.color)
+              CategoryItem(catItem.title, catItem.color)
           ).toList(),
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200, // space to be taken by each grid item
