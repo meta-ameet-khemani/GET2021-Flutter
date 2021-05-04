@@ -39,7 +39,7 @@ class Meals extends StatelessWidget {
         child: ListView.builder(
           itemBuilder: (context, index) {
             return Container(
-              child: MealItem(mealsByCategoryId[index].title, mealsByCategoryId[index].duration.toString(), mealsByCategoryId[index].imageUrl, mealsByCategoryId[index].complexity, mealsByCategoryId[index].affordability),// Text('${mealsByCategoryId[index].title}'),
+              child: MealItem(mealsByCategoryId[index].id, mealsByCategoryId[index].title, mealsByCategoryId[index].duration.toString(), mealsByCategoryId[index].imageUrl, mealsByCategoryId[index].complexity, mealsByCategoryId[index].affordability),// Text('${mealsByCategoryId[index].title}'),
             );
           },
           itemCount: mealsByCategoryId.length,
