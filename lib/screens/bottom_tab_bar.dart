@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'category_screen.dart';
+import 'all_category_screen.dart';
 import 'favourities.dart';
+import 'main_drawer.dart';
 
 class BottomTabBar extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
   int _currentIndex = 0;
   final List<Map<String, Object>> _widgetList = [
     {'widget' : CategoryScreen(), 'title' : 'Categories'},
-    {'widget' : Favourites(), 'title' : 'Categories'},
+    {'widget' : Favourites(), 'title' : 'Favourites'},
   ];
 
   void _changeTab (int index) {
@@ -27,6 +28,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
       appBar: AppBar(
         title: Text(_widgetList[_currentIndex]['title']),
       ),
+      drawer: MainDrawer(),
       body: _widgetList[_currentIndex]['widget'],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,

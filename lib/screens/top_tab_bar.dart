@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/category_screen.dart';
+import '../screens/all_category_screen.dart';
 import '../screens/favourities.dart';
 
 class TopTabBars extends StatelessWidget {

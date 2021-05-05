@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/temp_asset/dummy_meals.dart';
 
 class MealItemDetails extends StatelessWidget {
+
   static String routeName = '/meal-item-details';
 
   @override
   Widget build(BuildContext context) {
+
     final id = ModalRoute.of(context).settings.arguments as String;
     final meal = DUMMY_MEALS.firstWhere((meal) => meal.id == id);
-    print(meal.steps.length);
 
     return Scaffold(
       appBar: AppBar(
@@ -89,6 +90,11 @@ class MealItemDetails extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.red,
+        child: Icon(Icons.delete),
+        onPressed: () { Navigator.of(context).pop(id); },
       ),
     );
   }

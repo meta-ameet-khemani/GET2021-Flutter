@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'meals_screen.dart';
+import 'all_meals_by_category_screen.dart';
 
 class CategoryItem extends StatelessWidget {
 
@@ -16,7 +16,7 @@ class CategoryItem extends StatelessWidget {
 
     // named route
     Navigator.of(context).pushNamed(
-        Meals.routeName,
+      MealsByCategory.routeName,
         arguments: {'id': id, 'title': title, 'color': color},
     );
   }
