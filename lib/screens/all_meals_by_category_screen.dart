@@ -64,7 +64,7 @@ class _MealsByCategoryState extends State<MealsByCategory> {
                 mealsByCategoryId[index].imageUrl,
                 mealsByCategoryId[index].complexity,
                 mealsByCategoryId[index].affordability,
-                _removeItem,
+                // _removeItem,
               ),// Text('${mealsByCategoryId[index].title}'),
             );
           },

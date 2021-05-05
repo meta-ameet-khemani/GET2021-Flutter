@@ -4,6 +4,10 @@ import '../temp_asset/dummy_meals.dart';
 class MealItemDetails extends StatelessWidget {
 
   static String routeName = '/meal-item-details';
+  final Function toggleFavorite;
+  final Function isFavorite;
+
+  MealItemDetails(this.toggleFavorite, this.isFavorite);
 
   @override
   Widget build(BuildContext context) {
@@ -93,8 +97,8 @@ class MealItemDetails extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.red,
-        child: Icon(Icons.delete),
-        onPressed: () { Navigator.of(context).pop(id); },
+        child: isFavorite(id) ? Icon(Icons.star) : Icon(Icons.star_border),
+        onPressed: () => toggleFavorite(id),
       ),
     );
   }

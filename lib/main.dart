@@ -24,6 +24,7 @@ class _MyAppState extends State<MyApp> {
     'oil' : false
   };
   List<Meal> _allMeals = DUMMY_MEALS;
+  List<Meal> _favoriteMeals = [];
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +51,26 @@ class _MyAppState extends State<MyApp> {
       });
     }
 
+    void _toggleFavorite (String mealId) {
+      final existingIndex =
+      _favoriteMeals.indexWhere((meal) => meal.id == mealId);
+      if (existingIndex >= 0) {
+        setState(() {
+          _favoriteMeals.removeAt(existingIndex);
+        });
+      } else {
+        setState(() {
+          _favoriteMeals.add(
+            DUMMY_MEALS.firstWhere((meal) => meal.id == mealId),
+          );
+        });
+      }
+    }
+
+    bool _isFavourite (String mealId) {
+      return _favoriteMeals.any((meal) => meal.id == mealId);
+    }
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -57,9 +78,9 @@ class _MyAppState extends State<MyApp> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: {
-        '/': (context) => BottomTabBar(),
+        '/': (context) => BottomTabBar(_favoriteMeals),
         MealsByCategory.routeName: (context) => MealsByCategory(_allMeals),
-        MealItemDetails.routeName: (context) => MealItemDetails(),
+        MealItemDetails.routeName: (context) => MealItemDetails(_toggleFavorite, _isFavourite),
         Filters.routeName: (context) => Filters(_filterOptions, _setFilterOptions),
       },
       // home: CategoryScreen(),

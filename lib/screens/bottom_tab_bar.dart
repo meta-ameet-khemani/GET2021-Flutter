@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import '../models/meal.dart';
 import 'all_category_screen.dart';
 import 'favourities.dart';
 import 'main_drawer.dart';
 
 class BottomTabBar extends StatefulWidget {
+
+  final List<Meal> _favoriteMeals;
+
+  BottomTabBar(this._favoriteMeals);
+
   @override
   _BottomTabBarState createState() => _BottomTabBarState();
 }
@@ -11,10 +17,16 @@ class BottomTabBar extends StatefulWidget {
 class _BottomTabBarState extends State<BottomTabBar> {
 
   int _currentIndex = 0;
-  final List<Map<String, Object>> _widgetList = [
-    {'widget' : CategoryScreen(), 'title' : 'Categories'},
-    {'widget' : Favourites(), 'title' : 'Favourites'},
-  ];
+  List<Map<String, Object>> _widgetList;
+
+  @override
+  void initState() {
+    super.initState();
+    _widgetList = [
+      {'widget' : CategoryScreen(), 'title' : 'Categories'},
+      {'widget' : Favourites(widget._favoriteMeals), 'title' : 'Favourites'},
+    ];
+  }
 
   void _changeTab (int index) {
     setState(() {

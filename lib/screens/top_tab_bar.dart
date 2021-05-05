@@ -26,7 +26,7 @@ class TopTabBars extends StatelessWidget {
         body: TabBarView(
           children: [
             CategoryScreen(),
-            Favourites(),
+            Favourites([]),
           ],
         ),
       ),
