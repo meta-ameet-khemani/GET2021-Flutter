@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/models/category.dart';
+import '../models/category.dart';
 
 const DUMMY_CATEGORY_ITEM = const [
   Category(id: 'c1', title: 'Vegetarian', color: Colors.orange),

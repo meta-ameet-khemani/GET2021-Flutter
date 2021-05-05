@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'filters.dart';
 
@@ -31,7 +30,7 @@ class MainDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            onTap: () { Navigator.of(context).pushReplacementNamed(Filters.routeName); },
+            onTap: () { Navigator.of(context).pushNamed(Filters.routeName); }, // not using pushedNamedReplacement just because when we open filters and go back it should open that drawer otherwise our app will be closed
             leading: Icon(
               Icons.settings,
               size: 30,
