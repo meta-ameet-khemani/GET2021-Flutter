@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // Wrapping top most widget for product provider, so that all can listen for changes
     return ChangeNotifierProvider(
-      create: (context) => ProductProvider(),
+      create: (context) =>
+          ProductProvider(), // context will have that thing which is supposed to be changed
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
