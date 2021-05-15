@@ -1,91 +1,54 @@
 import 'package:flutter/material.dart';
-import 'models/meal.dart';
-import 'temp_asset/dummy_meals.dart';
-import 'screens/bottom_tab_bar.dart';
-import 'screens/filters.dart';
-import 'screens/meal_item_details.dart';
-import 'screens/all_meals_by_category_screen.dart';
+import 'package:my_online_shop/providers/order_provider.dart';
+import 'package:my_online_shop/screens/add_product.dart';
+import 'package:my_online_shop/screens/edit_product.dart';
+import 'package:provider/provider.dart';
+
+import 'screens/my_cart.dart';
+import 'providers/cart_provider.dart';
+import 'providers/product_provider.dart';
+import 'screens/product_item_details.dart';
+import 'screens/all_products.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-
-  Map<String, bool> _filterOptions = {
-    'curd' : false,
-    'vegan' : false,
-    'vegetarian' : false,
-    'oil' : false
-  };
-  List<Meal> _allMeals = DUMMY_MEALS;
-  List<Meal> _favoriteMeals = [];
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Wrapping top most widget for product provider, so that all can listen for changes
+    return MultiProvider(
+      // we can have a really long list of providers here
+      // it won't affect the performance of app
+      // because it's listeners who re-builds app not providers
+      providers: [
+        ChangeNotifierProvider.value(value: ProductProvider()),
+        ChangeNotifierProvider.value(value: CartProvider()),
 
-    void _setFilterOptions (Map<String, bool> filterOptions) {
-
-      setState(() {
-        _filterOptions = filterOptions;
-        _allMeals = DUMMY_MEALS.where((meal) {
-          if (_filterOptions['oil'] && !meal.isOilFree) {
-            return false;
-          }
-          if (_filterOptions['curd'] && !meal.isCurdFree) {
-            return false;
-          }
-          if (_filterOptions['vegan'] && !meal.isVegan) {
-            return false;
-          }
-          if (_filterOptions['vegetarian'] && !meal.isVegetarian) {
-            return false;
-          }
-          return true;
-        }).toList();
-      });
-    }
-
-    void _toggleFavorite (String mealId) {
-      final existingIndex =
-      _favoriteMeals.indexWhere((meal) => meal.id == mealId);
-      if (existingIndex >= 0) {
-        setState(() {
-          _favoriteMeals.removeAt(existingIndex);
-        });
-      } else {
-        setState(() {
-          _favoriteMeals.add(
-            DUMMY_MEALS.firstWhere((meal) => meal.id == mealId),
-          );
-        });
-      }
-    }
-
-    bool _isFavourite (String mealId) {
-      return _favoriteMeals.any((meal) => meal.id == mealId);
-    }
-
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        // recommended approach to list all providers is
+        ChangeNotifierProvider(
+          create: (_) => OrderProvider(),
+        ),
+      ],
+      // context will have that thing which is supposed to be changed
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primaryColor: Colors.purple, // main color
+          accentColor: Colors.deepOrange, // second/accent color
+          fontFamily: 'Lato',
+        ),
+        routes: {
+          ProductItemDetails.productItemDetailsRouteName: (context) =>
+              ProductItemDetails(),
+          MyCart.routeName: (context) => MyCart(),
+          AddProduct.routeName: (context) => AddProduct(),
+          EditProduct.routeName: (context) => EditProduct(),
+        },
+        home: AllProducts(),
+        debugShowCheckedModeBanner: false,
       ),
-      routes: {
-        '/': (context) => BottomTabBar(_favoriteMeals),
-        MealsByCategory.routeName: (context) => MealsByCategory(_allMeals),
-        MealItemDetails.routeName: (context) => MealItemDetails(_toggleFavorite, _isFavourite),
-        Filters.routeName: (context) => Filters(_filterOptions, _setFilterOptions),
-      },
-      // home: CategoryScreen(),
-      // home: TopTabBars(),
-      // home: BottomTabBar(),
     );
   }
 }
