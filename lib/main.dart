@@ -1,3 +1,5 @@
+import 'package:animations_example/holdiay_planner/holiday_homepage.dart';
+
 import 'explicit_animation_and_transitions/scale_transition_widget.dart';
 import 'explicit_animation_and_transitions/size_transition_widget.dart';
 import 'explicit_animation_and_transitions/rotation_transition_widget.dart';
@@ -46,7 +48,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   PageController _pageController = PageController(
-    initialPage: 14,
+    initialPage: 15,
   );
 
   @override
@@ -75,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
             RotationTransitionWidget(),
             ScaleTransitionWidget(),
             SizeTransitionWidget(),
+            HolidayHomepage(),
           ],
         ),
       ),
