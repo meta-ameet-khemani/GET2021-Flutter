@@ -241,6 +241,46 @@ class MainDrawer extends StatelessWidget {
             ),
             onTap: () => changeWidget('sized-box'),
           ),
+          ListTile(
+            leading: Icon(Icons.list),
+            title: Text(
+              'Dismissible',
+              style: TextStyle(fontSize: 25),
+            ),
+            onTap: () => changeWidget('dismissible'),
+          ),
+          ListTile(
+            leading: Icon(Icons.drag_handle),
+            title: Text(
+              'Draggable',
+              style: TextStyle(fontSize: 25),
+            ),
+            onTap: () => changeWidget('draggable'),
+          ),
+          ListTile(
+            leading: Icon(Icons.screen_lock_landscape),
+            title: Text(
+              'Draggable Scrollable Sheet',
+              style: TextStyle(fontSize: 25),
+            ),
+            onTap: () => changeWidget('draggablescrollablesheet'),
+          ),
+          ListTile(
+            leading: Icon(Icons.image),
+            title: Text(
+              'Interactive View',
+              style: TextStyle(fontSize: 25),
+            ),
+            onTap: () => changeWidget('interactiveview'),
+          ),
+          ListTile(
+            leading: Icon(Icons.square_foot_rounded),
+            title: Text(
+              'SafeArea Widget',
+              style: TextStyle(fontSize: 25),
+            ),
+            onTap: () => changeWidget('safearea'),
+          ),
         ],
       ),
     );

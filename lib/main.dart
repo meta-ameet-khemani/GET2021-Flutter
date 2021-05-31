@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:single_app_for_basic_widgets/alert_dialog/basic_alert/basic_alert.dart';
-import 'package:single_app_for_basic_widgets/align/align_widget.dart';
-import 'package:single_app_for_basic_widgets/aspect_ratio/aspect_ratio.dart';
-import 'package:single_app_for_basic_widgets/autocmplete/autocomplete_widget.dart';
-import 'package:single_app_for_basic_widgets/baseline/baseline_widget.dart';
-import 'package:single_app_for_basic_widgets/basic_widgets/tab_bar.dart';
-import 'package:single_app_for_basic_widgets/constrained_box/constrained_box.dart';
-import 'package:single_app_for_basic_widgets/expanded/expanded_widget.dart';
-import 'package:single_app_for_basic_widgets/grid_view/grid_view.dart';
-import 'package:single_app_for_basic_widgets/intrinsic_height/intrinsic_height.dart';
-import 'package:single_app_for_basic_widgets/intrinsic_width/intrinsic_width.dart';
-import 'package:single_app_for_basic_widgets/page_view/my_page_view.dart';
-import 'package:single_app_for_basic_widgets/placeholder/placeholder.dart';
-import 'package:single_app_for_basic_widgets/progress_indicator/progress_indicator.dart';
-import 'package:single_app_for_basic_widgets/single_child_scroll_view/single_child_scroll_view_1.dart';
-import 'package:single_app_for_basic_widgets/single_child_scroll_view/single_child_scroll_view_2.dart';
-import 'package:single_app_for_basic_widgets/sized_box/sized_box.dart';
+import 'safearea/safearea_widget.dart';
+import 'interactive_view/interactive_view.dart';
+import 'draggable/draggable_widget.dart';
+import 'dismissible/dismissible_widget.dart';
+import 'alert_dialog/basic_alert/basic_alert.dart';
+import 'align/align_widget.dart';
+import 'aspect_ratio/aspect_ratio.dart';
+import 'autocmplete/autocomplete_widget.dart';
+import 'baseline/baseline_widget.dart';
+import 'basic_widgets/tab_bar.dart';
+import 'constrained_box/constrained_box.dart';
+import 'draggable_scrollable_sheet/draggable_scrollable_sheet_widget.dart';
+import 'expanded/expanded_widget.dart';
+import 'grid_view/grid_view.dart';
+import 'intrinsic_height/intrinsic_height.dart';
+import 'intrinsic_width/intrinsic_width.dart';
+import 'page_view/my_page_view.dart';
+import 'placeholder/placeholder.dart';
+import 'progress_indicator/progress_indicator.dart';
+import 'single_child_scroll_view/single_child_scroll_view_1.dart';
+import 'single_child_scroll_view/single_child_scroll_view_2.dart';
+import 'sized_box/sized_box.dart';
 import './basic_widgets/snack_bar.dart';
 import './basic_widgets/list/grid.dart';
 import './basic_widgets/list/long.dart';
@@ -192,6 +197,31 @@ class _HomepageState extends State<Homepage> {
           appBarTitle = "Sized Box Widget";
           break;
 
+        case "dismissible":
+          widgetToShow = DismissibleWidget();
+          appBarTitle = "Dismissible Widget";
+          break;
+
+        case "draggable":
+          widgetToShow = DraggableWidget();
+          appBarTitle = "Draggable Widget";
+          break;
+
+        case "draggablescrollablesheet":
+          widgetToShow = DraggableScrollableSheetWidget();
+          appBarTitle = "Draggable Scrollable Sheet Widget";
+          break;
+
+        case "interactiveview":
+          widgetToShow = InteractiveViewWidget();
+          appBarTitle = "Interactive View Widget";
+          break;
+
+        case "safearea":
+          widgetToShow = SafeAreaWidget();
+          appBarTitle = "SafeArea Widget";
+          break;
+
         default:
           widgetToShow = MyRow();
           appBarTitle = "Row Widget";
@@ -206,6 +236,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // comment this for safearea widget only
       appBar: AppBar(
         title: Text(appBarTitle),
       ),
