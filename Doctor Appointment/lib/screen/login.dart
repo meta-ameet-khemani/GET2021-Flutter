@@ -1,6 +1,10 @@
+import 'package:doctor_appointment/provider/login_logout_provider.dart';
+import 'package:doctor_appointment/screen/register_user.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
+  static final String routeName = '/login';
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -56,9 +60,18 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: RaisedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (!(_formKey.currentState.validate()))
                             return 'Error';
+                          else {
+                            await Provider.of<LoginLogoutProvider>(
+                              context,
+                              listen: false,
+                            ).setLogin(
+                              true,
+                              user: 'Ameet',
+                            );
+                          }
                         },
                         child: Text(
                           'Login',
@@ -80,7 +93,18 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         FlatButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            // Navigator.of(context).push(
+                            //   MaterialPageRoute(
+                            //     builder: (context) => RegisterUser(),
+                            //   ),
+                            // );
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (context) => RegisterUser(),
+                              ),
+                            );
+                          },
                           child: Text(
                             'Create One',
                             style: TextStyle(
