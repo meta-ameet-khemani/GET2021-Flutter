@@ -1,10 +1,10 @@
-import 'package:doctor_appointment/provider/login_logout_provider.dart';
-import 'package:doctor_appointment/screen/login.dart';
-import 'package:doctor_appointment/screen/register_user.dart';
+import 'provider/login_logout_provider.dart';
+import 'screen/login.dart';
+import 'screen/register_user.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'screen/homepage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,11 +21,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+    print('initState in MyApp');
     super.initState();
     initializeSharedPreferences().whenComplete(() {
       setState(() {
         userName = _sharedPreferences.get('user');
-        print(userName);
+        print('userName $userName');
       });
     });
   }

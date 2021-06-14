@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:doctor_appointment/provider/login_logout_provider.dart';
+import '../provider/login_logout_provider.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import '../model/user.dart';

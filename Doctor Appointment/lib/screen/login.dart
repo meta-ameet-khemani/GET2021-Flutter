@@ -1,5 +1,5 @@
-import 'package:doctor_appointment/provider/login_logout_provider.dart';
-import 'package:doctor_appointment/screen/register_user.dart';
+import '../provider/login_logout_provider.dart';
+import '../screen/register_user.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
