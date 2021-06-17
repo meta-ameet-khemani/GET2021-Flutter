@@ -17,38 +17,36 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: MyHomePage(),
       theme: ThemeData(
-          primarySwatch: Colors.purple,
-          accentColor: Colors.purple,
-          fontFamily: 'Quicksand',
-          textTheme: ThemeData.light().textTheme.copyWith(
-            title: TextStyle(
-              fontFamily: 'OpenSans',
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
-          ),
-          appBarTheme: AppBarTheme(
-            textTheme: ThemeData.light().textTheme.copyWith(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.purple,
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
               title: TextStyle(
                 fontFamily: 'OpenSans',
-                fontSize: 20,
                 fontWeight: FontWeight.bold,
+                fontSize: 18,
               ),
             ),
-          ),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+                title: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+        ),
       ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final List<Transaction> _transactions = [
     Transaction(
       id: 't1',
@@ -97,27 +95,27 @@ class _MyHomePageState extends State<MyHomePage> {
   void _addTransaction(String title, double amount, DateTime selectedDate) {
     print(selectedDate);
     setState(() {
-      _transactions.add(
-          Transaction(
-              id: DateTime.now().toString(),
-              title: title,
-              amount: amount,
-              date: selectedDate
-          )
-      );
+      _transactions.add(Transaction(
+          id: DateTime.now().toString(),
+          title: title,
+          amount: amount,
+          date: selectedDate));
     });
   }
 
-  void _showNewTransactionForm (BuildContext ctx) {
-    showModalBottomSheet(context: ctx, builder: (_) {
-      return NewTransaction(_addTransaction);
-    });
+  void _showNewTransactionForm(BuildContext ctx) {
+    showModalBottomSheet(
+        context: ctx,
+        builder: (_) {
+          return NewTransaction(_addTransaction);
+        });
   }
 
   List<Transaction> getLastTransactions(int difference) {
     List<Transaction> lastTransactions = [];
     for (Transaction tx in _transactions) {
-      if (tx.date.isAfter(DateTime.now().subtract(Duration(days: difference)))) {
+      if (tx.date
+          .isAfter(DateTime.now().subtract(Duration(days: difference)))) {
         lastTransactions.add(tx);
       }
     }
@@ -136,7 +134,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('Expense Transactions App'),
         actions: [
-          IconButton(icon: Icon(Icons.add), onPressed: () => _showNewTransactionForm(context))
+          IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () => _showNewTransactionForm(context))
         ],
       ),
       body: SingleChildScrollView(
@@ -153,6 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showNewTransactionForm(context),
         child: IconButton(
+          onPressed: () {},
           icon: Icon(
             Icons.add,
             color: Colors.white,

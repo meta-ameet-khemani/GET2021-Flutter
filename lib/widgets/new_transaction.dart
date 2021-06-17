@@ -14,7 +14,7 @@ class NewTransaction extends StatefulWidget {
 class _NewTransactionState extends State<NewTransaction> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
-  DateTime _selectedDate;
+  DateTime? _selectedDate;
 
   void _submitData () {
 
@@ -81,7 +81,7 @@ class _NewTransactionState extends State<NewTransaction> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  _selectedDate == null ? 'No chosen date' : DateFormat.yMMMd().format(_selectedDate),
+                  _selectedDate == null ? 'No chosen date' : DateFormat.yMMMd().format(_selectedDate!),
                   style: TextStyle(fontSize: 17),
                 ),
                 FlatButton(
