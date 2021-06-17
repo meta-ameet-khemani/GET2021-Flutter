@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 class Login extends StatelessWidget {
   final scaffoldKey;
-  const Login(this.scaffoldKey, {Key key}) : super(key: key);
+  const Login(this.scaffoldKey, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

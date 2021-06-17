@@ -4,7 +4,7 @@ import '../provider/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 class Homepage extends StatelessWidget {
-  const Homepage({Key key}) : super(key: key);
+  const Homepage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class Homepage extends StatelessWidget {
           ),
           (user != null && user.photoURL != null)
               ? CircleAvatar(
-                  backgroundImage: NetworkImage(user.photoURL),
+                  backgroundImage: NetworkImage(user.photoURL!),
                 )
               : Text(''),
           SizedBox(

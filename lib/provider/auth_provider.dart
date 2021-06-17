@@ -5,9 +5,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 class AuthProvider extends ChangeNotifier {
   final googleSignIn = GoogleSignIn();
 
-  GoogleSignInAccount _user;
+  GoogleSignInAccount? _user;
 
-  GoogleSignInAccount get getUser => _user;
+  GoogleSignInAccount? get getUser => _user;
 
   bool isSimpleLogin = false;
 

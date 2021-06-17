@@ -5,10 +5,10 @@ class SocialMediaLoginButton extends StatelessWidget {
   final Function callBack;
   final IconData icon;
   const SocialMediaLoginButton({
-    Key key,
-    @required this.icon,
-    @required this.content,
-    @required this.callBack,
+    Key? key,
+    required this.icon,
+    required this.content,
+    required this.callBack,
   }) : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class SocialMediaLoginButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           RaisedButton(
-            onPressed: callBack,
+            onPressed: callBack as void Function()?,
             // () {
             //   final provider =
             //       Provider.of<AuthProvider>(context, listen: false);
