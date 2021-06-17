@@ -3,11 +3,12 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 class MyImagePicker extends StatelessWidget {
-  File _image;
+  File? _image;
 
   Future _getImage() async {
     // final image = await ImagePicker.pickImage(source: ImageSource.camera);
-    await ImagePicker.pickImage(source: ImageSource.camera);
+    // await ImagePicker.pickImage(source: ImageSource.camera);
+    await ImagePicker().getImage(source: ImageSource.camera);
     // setState(() {
     //   this._image = image;
     // });
@@ -39,7 +40,7 @@ class MyImagePicker extends StatelessWidget {
                     height: 300,
                     child: CircleAvatar(
                       radius: 80.0,
-                      backgroundImage: FileImage(this._image),
+                      backgroundImage: FileImage(this._image!),
                     ), // Image.file(this._image),
                   ),
           ],

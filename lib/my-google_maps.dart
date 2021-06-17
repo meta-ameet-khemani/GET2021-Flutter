@@ -8,15 +8,15 @@ class MyGoogleMapsDemo extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyGoogleMapsDemo> {
-  GoogleMapController _googleMapController;
+  late GoogleMapController _googleMapController;
   MapType _currentMapType = MapType.normal;
   IconData _icon = Icons.all_out;
   int index = 1;
   final _center = LatLng(26.238947, 73.024307);
-  Marker _origin, _destination;
-  Directions info;
+  Marker? _origin, _destination;
+  Directions? info;
 
-  final Set<Marker> _markers = {
+  final Set<Marker?> _markers = {
     Marker(
         markerId: MarkerId('0'),
         position: LatLng(26.20761623695986, 72.95865652476884),
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyGoogleMapsDemo> {
                     _googleMapController.animateCamera(
                       CameraUpdate.newCameraPosition(
                         CameraPosition(
-                          target: _origin.position,
+                          target: _origin!.position,
                           zoom: 35,
                           tilt: 50,
                         ),
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyGoogleMapsDemo> {
                     _googleMapController.animateCamera(
                       CameraUpdate.newCameraPosition(
                         CameraPosition(
-                          target: _destination.position,
+                          target: _destination!.position,
                           zoom: 35,
                           tilt: 50,
                         ),
@@ -93,14 +93,14 @@ class _MyHomePageState extends State<MyGoogleMapsDemo> {
             mapType: _currentMapType,
             onMapCreated: _mapController,
             onCameraMove: (position) => print(position),
-            markers: _markers,
+            markers: _markers as Set<Marker>,
             polylines: {
               if (info != null)
                 Polyline(
                   polylineId: PolylineId('overview_polyline'),
                   color: Colors.red,
                   width: 5,
-                  points: info.polyLinePoints
+                  points: info!.polyLinePoints!
                       .map((e) => LatLng(e.latitude, e.longitude))
                       .toList(),
                 ),
@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyGoogleMapsDemo> {
                   ],
                 ),
                 child: Text(
-                  '${info.totalDistance}, ${info.totalDuration}',
+                  '${info!.totalDistance}, ${info!.totalDuration}',
                   style: const TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.w600,
@@ -148,7 +148,7 @@ class _MyHomePageState extends State<MyGoogleMapsDemo> {
             // _changeMapType
             _googleMapController.animateCamera(
               info != null
-                  ? CameraUpdate.newLatLngBounds(info.bounds, 100)
+                  ? CameraUpdate.newLatLngBounds(info!.bounds!, 100)
                   : CameraUpdate.newCameraPosition(
                       CameraPosition(
                         target: _center,
@@ -235,7 +235,7 @@ class _MyHomePageState extends State<MyGoogleMapsDemo> {
       });
 
       final directions = await DirectionsRepository().getDirections(
-          origin: _origin.position, destination: _destination.position);
+          origin: _origin!.position, destination: _destination!.position);
       print('directions');
       print(directions);
       setState(() {

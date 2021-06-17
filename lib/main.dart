@@ -29,7 +29,7 @@ Future<void> main() async {
       requestBadgePermission: true,
       requestSoundPermission: true,
       onDidReceiveLocalNotification:
-          (int id, String title, String body, String payload) async {});
+          (int id, String? title, String? body, String? payload) async {});
 
   // 5. Register both platform settings [system will automatically get one of these]
   final initializationSettings = InitializationSettings(
@@ -38,7 +38,7 @@ Future<void> main() async {
   // 6. register the settings in plugin variable
   await _flutterLocalNotificationsPlugin.initialize(
     initializationSettings,
-    onSelectNotification: (String payload) async {
+    onSelectNotification: (String? payload) async {
       if (payload != null) {
         debugPrint('Notification payload : $payload');
       }

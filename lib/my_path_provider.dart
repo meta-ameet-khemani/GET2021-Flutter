@@ -10,7 +10,7 @@ class MyPathProvider extends StatefulWidget {
 }
 
 class _MyPathProviderState extends State<MyPathProvider> {
-  String _fileContent;
+  String? _fileContent;
   TextEditingController _textEditingController = TextEditingController();
 
   void readFileContent() {

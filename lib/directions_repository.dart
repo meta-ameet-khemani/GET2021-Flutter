@@ -36,11 +36,11 @@ class DirectionsRepository {
 
   final Dio _dio;
 
-  DirectionsRepository({Dio dio}) : _dio = dio ?? Dio();
+  DirectionsRepository({Dio? dio}) : _dio = dio ?? Dio();
 
-  Future<Directions> getDirections({
-    @required LatLng origin,
-    @required LatLng destination,
+  Future<Directions?> getDirections({
+    required LatLng origin,
+    required LatLng destination,
   }) async {
     final response = await _dio.get(
       _baseUrl,
@@ -60,10 +60,10 @@ class DirectionsRepository {
 }
 
 class Directions {
-  final LatLngBounds bounds;
-  final List<PointLatLng> polyLinePoints;
-  final String totalDistance;
-  final String totalDuration;
+  final LatLngBounds? bounds;
+  final List<PointLatLng>? polyLinePoints;
+  final String? totalDistance;
+  final String? totalDuration;
 
   const Directions({
     this.bounds,
@@ -75,9 +75,9 @@ class Directions {
   factory Directions.fromMap(Map<String, dynamic> map) {
     print('map');
     print(map);
-    if ((map['routes'] as List).isEmpty) {
-      return null;
-    }
+    // if ((map['routes'] as List).isEmpty) {
+    //   return null;
+    // }
 
     final data = Map<String, dynamic>.from(map['routes'][0]);
 
@@ -89,8 +89,8 @@ class Directions {
       southwest: LatLng(southWest['lat'], southWest['lng']),
     );
 
-    String distance = '';
-    String duration = '';
+    String? distance = '';
+    String? duration = '';
     if ((data['legs'] as List).isNotEmpty) {
       final leg = data['legs'][0];
       distance = leg['distance']['text'];
