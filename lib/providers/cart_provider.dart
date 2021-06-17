@@ -10,13 +10,13 @@ class CartProvider with ChangeNotifier {
 
   int get totalCountCartItem => _cartItems.length;
 
-  void addItem({Product product}) {
-    int index = _cartItems.indexWhere((item) => item.product.id == product.id);
+  void addItem({Product? product}) {
+    int index = _cartItems.indexWhere((item) => item.product.id == product!.id);
     if (index >= 0) {
       _cartItems[index].quantity += 1;
     } else {
       _cartItems.add(
-          Cart(id: DateTime.now().toString(), product: product, quantity: 1));
+          Cart(id: DateTime.now().toString(), product: product!, quantity: 1));
     }
     notifyListeners();
   }
@@ -24,12 +24,12 @@ class CartProvider with ChangeNotifier {
   String getTotalAmount() {
     double total = 0.0;
     _cartItems.forEach((item) {
-      total += item.product.price * item.quantity;
+      total += item.product.price! * item.quantity;
     });
     return total.toString();
   }
 
-  void removeItem(String id) {
+  void removeItem(String? id) {
     _cartItems.removeWhere((item) => item.id == id);
     notifyListeners();
   }

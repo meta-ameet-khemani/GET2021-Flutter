@@ -5,5 +5,5 @@ class Cart {
   Product product;
   int quantity;
 
-  Cart({this.id, this.product, this.quantity});
+  Cart({required this.id, required this.product, required this.quantity});
 }

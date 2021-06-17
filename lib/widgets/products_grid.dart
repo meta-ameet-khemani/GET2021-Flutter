@@ -8,7 +8,7 @@ import '../providers/product_provider.dart';
 
 class ProductsGrid extends StatelessWidget {
   final bool showFavoritesOnly;
-  int indexx;
+  late int indexx;
 
   ProductsGrid(this.showFavoritesOnly);
 
@@ -28,7 +28,7 @@ class ProductsGrid extends StatelessWidget {
       allProducts = productProvider.getAll;
     }
 
-    return productProvider.isLoading
+    return productProvider.isLoading!
         ? Center(
             child: CircularProgressIndicator(),
           )

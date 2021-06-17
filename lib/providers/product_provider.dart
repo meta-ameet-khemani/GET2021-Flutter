@@ -13,11 +13,11 @@ class ProductProvider with ChangeNotifier {
   final String _productsLink =
       'https://flutterdemo-79b3f-default-rtdb.firebaseio.com/products.json';
 
-  bool isLoading = false;
+  bool? isLoading = false;
 
   Future<void> getAllProducts() async {
     try {
-      final allProducts = await http.get(_productsLink);
+      final allProducts = await http.get(Uri.parse(_productsLink));
       final allProductsDetail =
           json.decode(allProducts.body) as Map<String, dynamic>;
       final List<Product> finalProductList = [];
@@ -39,7 +39,7 @@ class ProductProvider with ChangeNotifier {
     }
   }
 
-  void setLoader({bool showLoader}) {
+  void setLoader({bool? showLoader}) {
     isLoading = showLoader;
     notifyListeners();
   }
@@ -52,10 +52,13 @@ class ProductProvider with ChangeNotifier {
   }
 
   Future<void> addProduct(
-      {String title, double price, String description, String imageUrl}) async {
+      {String? title,
+      double? price,
+      String? description,
+      String? imageUrl}) async {
     try {
       final response = await http.post(
-        _productsLink,
+        Uri.parse(_productsLink),
         body: json.encode({
           'title': title,
           'description': description,
@@ -113,7 +116,7 @@ class ProductProvider with ChangeNotifier {
     // });
   }
 
-  Product getProductById(String id) {
+  Product getProductById(String? id) {
     return _products.firstWhere((product) => product.id == id);
   }
 

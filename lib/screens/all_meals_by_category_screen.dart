@@ -14,16 +14,16 @@ class MealsByCategory extends StatefulWidget {
 
 class _MealsByCategoryState extends State<MealsByCategory> {
 
-  String title;
-  List mealsByCategoryId;
+  String? title;
+  late List mealsByCategoryId;
   
   @override
   void didChangeDependencies() {
-    final routeArguments = ModalRoute.of(context).settings.arguments as Map<String, Object>;
+    final routeArguments = ModalRoute.of(context)!.settings.arguments as Map<String, Object>;
 
     final id = routeArguments['id'];
-    title = routeArguments['title'];
-    final Color color = routeArguments['color'] as Color;
+    title = routeArguments['title'] as String?;
+    final Color? color = routeArguments['color'] as Color?;
 
     mealsByCategoryId = widget._allMeals.where((meal) {
       return meal.categories.contains(id);

@@ -4,12 +4,12 @@ import 'meal_item_details.dart';
 
 class MealItem extends StatelessWidget {
 
-  final String id;
-  final String title;
+  final String? id;
+  final String? title;
   final String duration;
-  final String imageURL;
-  final Complexity complexity;
-  final Affordability affordability;
+  final String? imageURL;
+  final Complexity? complexity;
+  final Affordability? affordability;
   // final Function removeItem;
 
   MealItem(
@@ -77,7 +77,7 @@ class MealItem extends StatelessWidget {
                     topRight: Radius.circular(15),
                   ),
                   child: Image.network(
-                    imageURL,
+                    imageURL!,
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -91,7 +91,7 @@ class MealItem extends StatelessWidget {
                     color: Colors.black54,
                     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                     child: Text(
-                      title,
+                      title!,
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.white

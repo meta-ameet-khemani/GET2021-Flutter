@@ -24,7 +24,7 @@ class ProductItem extends StatelessWidget {
             );
           },
           child: Image.network(
-            productItemProvider.imageUrl,
+            productItemProvider.imageUrl!,
             fit: BoxFit.cover, // take all available space
           ),
         ),
@@ -49,7 +49,7 @@ class ProductItem extends StatelessWidget {
           }),
           backgroundColor: Colors.black87,
           title: Text(
-            productItemProvider.title,
+            productItemProvider.title!,
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(

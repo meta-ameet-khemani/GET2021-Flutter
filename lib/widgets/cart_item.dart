@@ -3,10 +3,10 @@ import 'package:my_online_shop/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
 class CartItem extends StatelessWidget {
-  final String id;
-  final String title;
-  final double price;
-  final int quantity;
+  final String? id;
+  final String? title;
+  final double? price;
+  final int? quantity;
 
   CartItem({this.id, this.title, this.price, this.quantity});
 
@@ -55,7 +55,7 @@ class CartItem extends StatelessWidget {
               ),
             ),
             title: Text('$title'),
-            subtitle: Text('Total ${(price * quantity)} Rs'),
+            subtitle: Text('Total ${(price! * quantity!)} Rs'),
             trailing: Text('$quantity x'),
           ),
         ),

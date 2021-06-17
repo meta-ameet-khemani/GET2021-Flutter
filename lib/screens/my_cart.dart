@@ -41,7 +41,8 @@ class MyCart extends StatelessWidget {
                       label: Text(
                         '$totalAmount',
                         style: TextStyle(
-                          color: Theme.of(context).primaryTextTheme.title.color,
+                          color:
+                              Theme.of(context).primaryTextTheme.title!.color,
                         ),
                       ),
                       backgroundColor: Theme.of(context).primaryColor,

@@ -10,8 +10,8 @@ class AddProduct extends StatefulWidget {
 }
 
 class _AddProductState extends State<AddProduct> {
-  String _title, _description, _imageUrl;
-  double _price;
+  String? _title, _description, _imageUrl;
+  double? _price;
 
   @override
   Widget build(BuildContext context) {

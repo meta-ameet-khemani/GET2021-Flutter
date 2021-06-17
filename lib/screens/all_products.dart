@@ -63,7 +63,7 @@ class _AllProductsState extends State<AllProducts> {
                 Navigator.of(context).pushNamed(AddProduct.routeName),
           ),
           PopupMenuButton(
-            onSelected: (selectedCategory) {
+            onSelected: (dynamic selectedCategory) {
               // if (selectedCategory == ProductsCategory.ALL) {
               //   productProvider.showAll();
               // } else {

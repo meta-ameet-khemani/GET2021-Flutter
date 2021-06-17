@@ -17,7 +17,7 @@ class BottomTabBar extends StatefulWidget {
 class _BottomTabBarState extends State<BottomTabBar> {
 
   int _currentIndex = 0;
-  List<Map<String, Object>> _widgetList;
+  late List<Map<String, Object>> _widgetList;
 
   @override
   void initState() {
@@ -38,10 +38,10 @@ class _BottomTabBarState extends State<BottomTabBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_widgetList[_currentIndex]['title']),
+        title: Text(_widgetList[_currentIndex]['title'] as String),
       ),
       drawer: MainDrawer(),
-      body: _widgetList[_currentIndex]['widget'],
+      body: _widgetList[_currentIndex]['widget'] as Widget?,
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.black,

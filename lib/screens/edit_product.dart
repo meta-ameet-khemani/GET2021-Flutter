@@ -12,7 +12,7 @@ class EditProduct extends StatefulWidget {
 class _AddProductState extends State<EditProduct> {
   @override
   Widget build(BuildContext context) {
-    final id = ModalRoute.of(context).settings.arguments as String;
+    final id = ModalRoute.of(context)!.settings.arguments as String?;
     print(id);
     return Scaffold(
       appBar: AppBar(

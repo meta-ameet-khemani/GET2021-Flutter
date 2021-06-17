@@ -18,7 +18,7 @@ class _FiltersState extends State<Filters> {
   Widget _buildSwitchListTile (String title, String subTitle, bool originalValue, Function changeValue) {
     return SwitchListTile(
       value: originalValue,
-      onChanged: changeValue,
+      onChanged: changeValue as void Function(bool)?,
       title: Text(title),
       subtitle: Text(subTitle),
     );
@@ -58,7 +58,7 @@ class _FiltersState extends State<Filters> {
             _buildSwitchListTile(
               'Curd Free',
               'My meal should curd free',
-               widget._filterOptions['curd'],
+               widget._filterOptions['curd']!,
                (newValue) {
                 setState(() {
                   widget._filterOptions['curd'] = newValue;
@@ -68,7 +68,7 @@ class _FiltersState extends State<Filters> {
             _buildSwitchListTile(
               'Vegan',
               'My meal should vegan',
-               widget._filterOptions['vegan'],
+               widget._filterOptions['vegan']!,
                (newValue) {
                 setState(() {
                   widget._filterOptions['vegan'] = newValue;
@@ -78,7 +78,7 @@ class _FiltersState extends State<Filters> {
             _buildSwitchListTile(
               'Vegetarian',
               'My meal should vegetarian',
-               widget._filterOptions['vegetarian'],
+               widget._filterOptions['vegetarian']!,
                (newValue) {
                 setState(() {
                   widget._filterOptions['vegetarian'] = newValue;
@@ -88,7 +88,7 @@ class _FiltersState extends State<Filters> {
             _buildSwitchListTile(
               'Oil Free',
               'My meal should oil free',
-               widget._filterOptions['oil'],
+               widget._filterOptions['oil']!,
                (newValue) {
                 setState(() {
                   widget._filterOptions['oil'] = newValue;

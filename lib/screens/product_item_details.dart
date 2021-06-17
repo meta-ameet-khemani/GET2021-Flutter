@@ -7,12 +7,12 @@ class ProductItemDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productId = ModalRoute.of(context).settings.arguments as String;
+    final productId = ModalRoute.of(context)!.settings.arguments as String?;
     final product =
         Provider.of<ProductProvider>(context).getProductById(productId);
     return Scaffold(
       appBar: AppBar(
-        title: Text(product.title),
+        title: Text(product.title!),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -21,7 +21,7 @@ class ProductItemDetails extends StatelessWidget {
               height: 300,
               width: double.infinity,
               child: Image.network(
-                product.imageUrl,
+                product.imageUrl!,
                 fit: BoxFit
                     .cover, // to cover the full screen (little bit zoom in)
               ),
