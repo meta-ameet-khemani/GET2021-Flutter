@@ -52,7 +52,7 @@ class ToDoList extends StatelessWidget {
                                     leading: Text('${toDoItem.title}'),
                                     title: Text('${toDoItem.description}'),
                                     subtitle: Text(
-                                        "${DateFormat('yyyy-MM-dd').format(toDoItem.time)}"),
+                                        "${DateFormat('yyyy-MM-dd').format(toDoItem.time!)}"),
                                     trailing: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: <Widget>[

@@ -2,16 +2,22 @@ import 'package:hive/hive.dart';
 
 part 'todo.g.dart';
 
-@HiveType(adapterName: 'ToDoAdapter')
+// @HiveType(adapterName: 'ToDoAdapter')
+@HiveType(typeId: 0)
 class ToDo {
   @HiveField(0)
-  String title;
+  String? title;
   @HiveField(1)
-  String description;
+  String? description;
   @HiveField(2)
-  DateTime time;
+  DateTime? time;
   @HiveField(3)
-  bool status;
+  bool? status;
 
-  ToDo({this.title, this.description, this.time, this.status});
+  ToDo({
+    required this.title,
+    required this.description,
+    required this.time,
+    required this.status,
+  });
 }

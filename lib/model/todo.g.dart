@@ -8,38 +8,43 @@ part of 'todo.dart';
 
 class ToDoAdapter extends TypeAdapter<ToDo> {
   @override
+  final int typeId = 0;
+
+  @override
   ToDo read(BinaryReader reader) {
-    var obj = ToDo();
-    var numOfFields = reader.readByte();
-    for (var i = 0; i < numOfFields; i++) {
-      switch (reader.readByte()) {
-        case 0:
-          obj.title = reader.read() as String;
-          break;
-        case 1:
-          obj.description = reader.read() as String;
-          break;
-        case 2:
-          obj.time = reader.read() as DateTime;
-          break;
-        case 3:
-          obj.status = reader.read() as bool;
-          break;
-      }
-    }
-    return obj;
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return ToDo(
+      title: fields[0] as String?,
+      description: fields[1] as String?,
+      time: fields[2] as DateTime?,
+      status: fields[3] as bool?,
+    );
   }
 
   @override
   void write(BinaryWriter writer, ToDo obj) {
-    writer.writeByte(4);
-    writer.writeByte(0);
-    writer.write(obj.title);
-    writer.writeByte(1);
-    writer.write(obj.description);
-    writer.writeByte(2);
-    writer.write(obj.time);
-    writer.writeByte(3);
-    writer.write(obj.status);
+    writer
+      ..writeByte(4)
+      ..writeByte(0)
+      ..write(obj.title)
+      ..writeByte(1)
+      ..write(obj.description)
+      ..writeByte(2)
+      ..write(obj.time)
+      ..writeByte(3)
+      ..write(obj.status);
   }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ToDoAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }

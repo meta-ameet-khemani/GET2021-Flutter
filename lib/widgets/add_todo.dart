@@ -7,10 +7,10 @@ class AddToDo extends StatelessWidget {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController dateTimeController = TextEditingController();
-  bool isEdit = false;
-  final String title;
-  final String description;
-  final int index;
+  bool? isEdit = false;
+  final String? title;
+  final String? description;
+  final int? index;
 
   AddToDo({
     this.index,
@@ -22,8 +22,8 @@ class AddToDo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (this.isEdit != null && this.isEdit == true) {
-      titleController.text = title;
-      descriptionController.text = description;
+      titleController.text = title!;
+      descriptionController.text = description!;
     } else {
       this.isEdit = false;
     }
@@ -61,10 +61,10 @@ class AddToDo extends StatelessWidget {
                 ),
                 RaisedButton(
                   onPressed: () async {
-                    if (this.isEdit) {
+                    if (this.isEdit!) {
                       final toDoBox = await Hive.box('ToDoBox');
                       toDoBox.putAt(
-                        index,
+                        index!,
                         ToDo(
                           title: titleController.text,
                           description: descriptionController.text,
@@ -90,7 +90,7 @@ class AddToDo extends StatelessWidget {
                     ),
                   ),
                 ),
-                this.isEdit
+                this.isEdit!
                     ? RaisedButton(
                         onPressed: () {
                           Navigator.of(context).pop();
