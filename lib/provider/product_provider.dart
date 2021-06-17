@@ -22,7 +22,7 @@ class ProductProvider with ChangeNotifier {
   Future<void> deleteProduct(String id) async {
     final String url =
         'https://flutterdemo-79b3f-default-rtdb.firebaseio.com/products/$id.json';
-    final response = await http.delete(url);
+    final response = await http.delete(Uri.parse(url));
     if (response.statusCode == 200) {
       int index = allProducts.indexWhere((product) => product.id == id);
       allProducts.removeAt(index);
@@ -38,7 +38,7 @@ class ProductProvider with ChangeNotifier {
         'https://flutterdemo-79b3f-default-rtdb.firebaseio.com/products/${product.id}.json';
     try {
       final response = await http.patch(
-        url,
+        Uri.parse(url),
         body: json.encode({
           'title': product.title,
           'price': product.price,
@@ -63,11 +63,15 @@ class ProductProvider with ChangeNotifier {
     }
   }
 
-  Future<void> addProduct(
-      {String title, double price, String description, String imageUrl}) async {
+  Future<void> addProduct({
+    required String title,
+    required double price,
+    required String description,
+    required String imageUrl,
+  }) async {
     try {
       final response = await http.post(
-        _productsUrl,
+        Uri.parse(_productsUrl),
         body: json.encode({
           'title': title,
           'price': price,
@@ -103,8 +107,8 @@ class ProductProvider with ChangeNotifier {
   Future<void> getAllProducts() async {
     try {
       showLoader(true);
-      final response = await http.get(
-          'https://flutterdemo-79b3f-default-rtdb.firebaseio.com/products.json');
+      final response = await http.get(Uri.parse(
+          'https://flutterdemo-79b3f-default-rtdb.firebaseio.com/products.json'));
       final jsonResponse = json.decode(response.body) as Map<String, dynamic>;
       final List<Product> allProds = [];
       if (jsonResponse != null) {

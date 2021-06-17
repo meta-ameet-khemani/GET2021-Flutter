@@ -11,18 +11,18 @@ class AddProduct extends StatefulWidget {
 }
 
 class _AddProductState extends State<AddProduct> {
-  String _title, _description, _imageUrl;
+  String? _title, _description, _imageUrl;
   // double _price;
   bool _isEdit = false;
-  TextEditingController _titleController;
-  TextEditingController _priceController;
-  TextEditingController _descriptionController;
-  TextEditingController _imageUrlController;
-  String _id;
+  TextEditingController? _titleController;
+  TextEditingController? _priceController;
+  TextEditingController? _descriptionController;
+  TextEditingController? _imageUrlController;
+  String? _id;
 
   void setTextField(BuildContext context) {
     final args =
-        ModalRoute.of(context).settings.arguments as Map<String, dynamic>;
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     if (args == null) {
       _titleController = TextEditingController();
       _priceController = TextEditingController();
@@ -59,7 +59,7 @@ class _AddProductState extends State<AddProduct> {
               try {
                 Navigator.of(context).pop();
                 _productProvider.showLoader(true);
-                await _productProvider.deleteProduct(_id);
+                await _productProvider.deleteProduct(_id!);
                 _productProvider.showLoader(false);
               } catch (error) {
                 // showDialog(
@@ -181,10 +181,10 @@ class _AddProductState extends State<AddProduct> {
               height: 40,
               child: RaisedButton(
                 onPressed: () async {
-                  final titleToUpdate = _titleController.text;
-                  final priceToUpdate = _priceController.text;
-                  final descriptionToUpdate = _descriptionController.text;
-                  final imageUrlToUpdate = _imageUrlController.text;
+                  final titleToUpdate = _titleController!.text;
+                  final priceToUpdate = _priceController!.text;
+                  final descriptionToUpdate = _descriptionController!.text;
+                  final imageUrlToUpdate = _imageUrlController!.text;
 
                   if (_isEdit) {
                     print('if');
@@ -193,7 +193,7 @@ class _AddProductState extends State<AddProduct> {
                     try {
                       await _productProvider.updateProduct(
                         Product(
-                          id: _id,
+                          id: _id!,
                           title: titleToUpdate,
                           description: descriptionToUpdate,
                           price: double.parse(priceToUpdate),
@@ -227,17 +227,17 @@ class _AddProductState extends State<AddProduct> {
                     _productProvider.showLoader(true);
                     try {
                       await _productProvider.addProduct(
-                        title: _titleController.text,
-                        description: _descriptionController.text,
+                        title: _titleController!.text,
+                        description: _descriptionController!.text,
                         price: 123.2,
-                        imageUrl: _imageUrlController.text,
+                        imageUrl: _imageUrlController!.text,
                       );
                       _productProvider.showLoader(false);
                     } catch (error) {
                       _productProvider.showLoader(false);
 
                       await showDialog(
-                        context: _scaffoldKey.currentContext,
+                        context: _scaffoldKey.currentContext!,
                         builder: (ctx) => AlertDialog(
                           title: Text('An error occurred!'),
                           content: Text('Something went wrong.'),
