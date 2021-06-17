@@ -7,7 +7,7 @@ class SizeTransitionWidget extends StatefulWidget {
 
 class _SizeTransitionWidgetState extends State<SizeTransitionWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController controller;
+  late AnimationController controller;
 
   @override
   void initState() {

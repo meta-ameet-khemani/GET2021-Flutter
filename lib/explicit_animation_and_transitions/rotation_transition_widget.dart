@@ -8,8 +8,8 @@ class RotationTransitionWidget extends StatefulWidget {
 
 class _RotationTransitionWidgetState extends State<RotationTransitionWidget>
     with TickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation _animation;
+  late AnimationController _animationController;
+  late Animation _animation;
 
   @override
   void initState() {
@@ -42,7 +42,7 @@ class _RotationTransitionWidgetState extends State<RotationTransitionWidget>
           width: 100,
           height: 100,
           child: RotationTransition(
-            turns: _animation,
+            turns: _animation as Animation<double>,
             alignment: Alignment.center,
             child: const FlutterLogo(),
           ),

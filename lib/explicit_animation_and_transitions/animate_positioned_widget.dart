@@ -8,7 +8,7 @@ class PositionedTransitionWidget extends StatefulWidget {
 
 class _PositionedTransitionWidgetState extends State<PositionedTransitionWidget>
     with TickerProviderStateMixin {
-  AnimationController _animationController;
+  late AnimationController _animationController;
   @override
   void initState() {
     _animationController = AnimationController(

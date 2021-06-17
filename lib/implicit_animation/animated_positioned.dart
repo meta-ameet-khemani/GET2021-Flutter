@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AnimatedPositionedWidget extends StatefulWidget {
-  AnimatedPositionedWidget({Key key, this.title}) : super(key: key);
-  final String title;
+  AnimatedPositionedWidget({Key? key, this.title}) : super(key: key);
+  final String? title;
   @override
   _AnimatedPositionedWidgetState createState() =>
       _AnimatedPositionedWidgetState();

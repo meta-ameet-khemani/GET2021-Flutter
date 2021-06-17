@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomepageHeader extends StatefulWidget {
-  final AnimationController animationController;
+  final AnimationController? animationController;
   HomepageHeader({this.animationController});
   @override
   _HomepageHeaderState createState() => _HomepageHeaderState();
@@ -39,7 +39,7 @@ class _HomepageHeaderState extends State<HomepageHeader> {
                 ),
                 // color: Colors.yellowAccent,
               ),
-              builder: (context, value, Widget child) {
+              builder: (context, dynamic value, Widget? child) {
                 return Opacity(
                   opacity: value,
                   child: Padding(
@@ -77,7 +77,7 @@ class _HomepageHeaderState extends State<HomepageHeader> {
           position: Tween<Offset>(
             begin: Offset(-1, 0),
             end: Offset.zero,
-          ).animate(widget.animationController),
+          ).animate(widget.animationController!),
           child: Align(
             alignment: Alignment.center,
             child: Text(

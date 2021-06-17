@@ -24,7 +24,7 @@ class _MyTweenAnimationBuilderState extends State<MyTweenAnimationBuilder> {
         ),
         color: Colors.yellowAccent,
       ),
-      builder: (context, value, Widget child) {
+      builder: (context, dynamic value, Widget? child) {
         return Opacity(
           opacity: value,
           child: Padding(

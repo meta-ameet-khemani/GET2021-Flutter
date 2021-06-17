@@ -8,10 +8,10 @@ class AnimationBuilderWidget extends StatefulWidget {
 
 class _AnimationBuilderWidgetState extends State<AnimationBuilderWidget>
     with TickerProviderStateMixin {
-  AnimationController _animationController1;
-  AnimationController _animationController2;
-  Animation<double> _animation1;
-  Animation<double> _animation2;
+  late AnimationController _animationController1;
+  late AnimationController _animationController2;
+  late Animation<double> _animation1;
+  late Animation<double> _animation2;
 
   @override
   void initState() {

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import '../screen/list_item_details.dart';
 
 class ItemList extends StatefulWidget {
-  final GlobalKey<AnimatedListState> keys;
-  final List<ListItem> items;
-  final Tween<Offset> offset;
+  final GlobalKey<AnimatedListState>? keys;
+  final List<ListItem>? items;
+  final Tween<Offset>? offset;
 
   ItemList({this.keys, this.items, this.offset});
   @override
@@ -19,12 +19,12 @@ class _ItemListState extends State<ItemList> {
     return Expanded(
       child: AnimatedList(
         key: widget.keys,
-        initialItemCount: widget.items.length,
+        initialItemCount: widget.items!.length,
         itemBuilder: (context, index, animation) {
           if (index < 5) {
-            final listItem = widget.items[index];
+            final listItem = widget.items![index];
             return SlideTransition(
-              position: animation.drive(widget.offset),
+              position: animation.drive(widget.offset!),
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -39,7 +39,7 @@ class _ItemListState extends State<ItemList> {
                     vertical: 20,
                   ),
                   child: Hero(
-                    tag: listItem.imageURL,
+                    tag: listItem.imageURL!,
                     child: Card(
                       child: ListTile(
                         leading: Container(
@@ -47,20 +47,20 @@ class _ItemListState extends State<ItemList> {
                           height: 60,
                           child: ClipOval(
                             child: Image.asset(
-                              listItem.imageURL,
+                              listItem.imageURL!,
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                         title: Text(
-                          listItem.title,
+                          listItem.title!,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        subtitle: Text(listItem.subTitle),
+                        subtitle: Text(listItem.subTitle!),
                         trailing: Text(
-                          listItem.ageLimit,
+                          listItem.ageLimit!,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
@@ -70,6 +70,11 @@ class _ItemListState extends State<ItemList> {
                   ),
                 ),
               ),
+            );
+          } else {
+            return SlideTransition(
+              position: animation.drive(widget.offset!),
+              child: GestureDetector(),
             );
           }
         },

@@ -12,8 +12,8 @@ class HolidayHomepage extends StatefulWidget {
 
 class _HolidayHomepageState extends State<HolidayHomepage>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<double> _animation;
+  AnimationController? _animationController;
+  Animation<double>? _animation;
   final GlobalKey<AnimatedListState> _keys = GlobalKey<AnimatedListState>();
   Tween<Offset> _offset = Tween(begin: Offset(1, 0), end: Offset(0, 0));
   int count = 0;
@@ -26,12 +26,12 @@ class _HolidayHomepageState extends State<HolidayHomepage>
       duration: Duration(seconds: 3),
       vsync: this,
     );
-    _animationController.forward();
-    _animation = Tween<double>(begin: 0, end: 1).animate(_animationController);
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    _animationController!.forward();
+    _animation = Tween<double>(begin: 0, end: 1).animate(_animationController!);
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
       _items.forEach((element) {
         int a = count++;
-        _keys.currentState.insertItem(a);
+        _keys.currentState!.insertItem(a);
       });
     });
     super.initState();

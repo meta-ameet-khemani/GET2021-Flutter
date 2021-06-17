@@ -1,9 +1,9 @@
 class ListItem {
-  String imageURL;
-  String title;
-  String subTitle;
-  String ageLimit;
-  String description;
+  String? imageURL;
+  String? title;
+  String? subTitle;
+  String? ageLimit;
+  String? description;
   bool isFavorite;
 
   ListItem({

@@ -32,8 +32,8 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> with TickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<double> _animation;
+  late AnimationController _animationController;
+  Animation<double>? _animation;
 
   @override
   void initState() {

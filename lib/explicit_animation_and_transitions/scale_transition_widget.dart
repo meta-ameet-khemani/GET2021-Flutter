@@ -7,8 +7,8 @@ class ScaleTransitionWidget extends StatefulWidget {
 
 class _ScaleTransitionWidgetState extends State<ScaleTransitionWidget>
     with TickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation _animation;
+  late AnimationController _animationController;
+  late Animation _animation;
 
   @override
   void initState() {
@@ -39,7 +39,7 @@ class _ScaleTransitionWidgetState extends State<ScaleTransitionWidget>
     return Scaffold(
       body: Center(
         child: ScaleTransition(
-          scale: _animation,
+          scale: _animation as Animation<double>,
           child: Container(
             width: 100,
             height: 100,

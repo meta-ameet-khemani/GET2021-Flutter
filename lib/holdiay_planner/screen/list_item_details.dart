@@ -12,11 +12,11 @@ class ListItemDetails extends StatefulWidget {
 
 class _ListItemDetailsState extends State<ListItemDetails>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<Color> _colorAnimation;
-  Animation<double> _sizeAnimation;
-  Animation _curveAnimation;
-  IconData icon;
+  late AnimationController _animationController;
+  late Animation<Color?> _colorAnimation;
+  late Animation<double> _sizeAnimation;
+  late Animation _curveAnimation;
+  IconData? icon;
   bool isFav = false;
 
   @override
@@ -43,7 +43,7 @@ class _ListItemDetailsState extends State<ListItemDetails>
         tween: Tween(begin: 50, end: 30),
         weight: 50,
       ),
-    ]).animate(_curveAnimation);
+    ]).animate(_curveAnimation as Animation<double>);
     // ]).animate(_animationController);
 
     _animationController.addStatusListener((status) {
@@ -81,12 +81,12 @@ class _ListItemDetailsState extends State<ListItemDetails>
         child: Column(
           children: [
             Hero(
-              tag: widget.listItem.imageURL,
+              tag: widget.listItem.imageURL!,
               child: Container(
                 height: 400,
                 width: double.infinity,
                 child: Image.asset(
-                  widget.listItem.imageURL,
+                  widget.listItem.imageURL!,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -105,7 +105,7 @@ class _ListItemDetailsState extends State<ListItemDetails>
                     children: [
                       Container(
                         child: Text(
-                          widget.listItem.title,
+                          widget.listItem.title!,
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -114,7 +114,7 @@ class _ListItemDetailsState extends State<ListItemDetails>
                       ),
                       Container(
                         child: Text(
-                          widget.listItem.title,
+                          widget.listItem.title!,
                           style: TextStyle(
                             fontSize: 17,
                           ),
@@ -151,7 +151,7 @@ class _ListItemDetailsState extends State<ListItemDetails>
                 height: 100,
                 width: 390,
                 child: Text(
-                  widget.listItem.description,
+                  widget.listItem.description!,
                 ),
               ),
             ),
