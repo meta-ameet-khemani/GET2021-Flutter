@@ -23,29 +23,29 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  SharedPreferences sharedPreferences;
+  SharedPreferences? sharedPreferences;
 
   Future<void> initialiseSharedPreferences() async {
     this.sharedPreferences = await SharedPreferences.getInstance();
-    this.sharedPreferences.setString('name', 'Ameet Khemani');
+    this.sharedPreferences!.setString('name', 'Ameet Khemani');
   }
 
   Future<void> add(String key, String value, {bool isEdit = false}) async {
     if (this.sharedPreferences != null) {
       // isEdit ? print('To Update') : print('To Add');
       if (isEdit) {
-        await this.sharedPreferences.setString(key, value);
+        await this.sharedPreferences!.setString(key, value);
       } else {
-        await this.sharedPreferences.setString(key, value);
+        await this.sharedPreferences!.setString(key, value);
       }
       setState(() {});
     }
@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void delete(String key) {
     if (this.sharedPreferences != null) {
-      this.sharedPreferences.remove(key);
+      this.sharedPreferences!.remove(key);
     }
     setState(() {});
   }
@@ -82,17 +82,17 @@ class _MyHomePageState extends State<MyHomePage> {
         'person',
         convertPerson(
             Person(name: 'John Doe', age: 35, address: 'California')));
-    Person person = this.sharedPreferences == null
+    Person? person = this.sharedPreferences == null
         ? null
         : Person.fromJson(
-            jsonDecode(this.sharedPreferences?.getString('person')));
+            jsonDecode(this.sharedPreferences!.getString('person')!));
     final name = this.sharedPreferences?.getString('name');
     final phone = this.sharedPreferences?.getString('phone');
     String centerText = 'name : $name \n person.name ${person?.name}';
     centerText = phone == null ? centerText : centerText + '\nphone: $phone';
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title!),
       ),
       body: Center(
         child: Column(
@@ -156,9 +156,9 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class Person {
-  String name;
-  int age;
-  String address;
+  String? name;
+  int? age;
+  String? address;
 
   Person({this.name, this.age, this.address});
 
