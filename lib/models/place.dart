@@ -9,12 +9,12 @@ class Place {
   final double rating;
 
   Place({
-    @required this.id,
-    @required this.name,
-    @required this.description,
-    @required this.location,
-    @required this.image,
-    @required this.rating,
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.location,
+    required this.image,
+    required this.rating,
   });
 }
 

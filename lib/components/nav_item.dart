@@ -8,9 +8,9 @@ class NavItem extends StatelessWidget {
   final bool isActive;
 
   const NavItem({
-    Key key,
-    @required this.icon,
-    @required this.isActive,
+    Key? key,
+    required this.icon,
+    required this.isActive,
   }) : super(key: key);
 
   @override

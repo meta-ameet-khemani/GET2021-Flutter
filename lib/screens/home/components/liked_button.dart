@@ -5,7 +5,7 @@ import '../../../util.dart';
 
 class LikedButton extends StatelessWidget {
   const LikedButton({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

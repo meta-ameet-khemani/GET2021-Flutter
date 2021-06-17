@@ -6,7 +6,7 @@ import '../../../constants.dart';
 class WelcomeButton extends StatelessWidget {
   final GestureTapCallback letsGO;
 
-  const WelcomeButton({Key key, @required this.letsGO}) : super(key: key);
+  const WelcomeButton({Key? key, required this.letsGO}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

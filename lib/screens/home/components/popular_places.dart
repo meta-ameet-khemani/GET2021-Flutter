@@ -6,7 +6,7 @@ import '../../../models/place.dart';
 
 class PopularPlaces extends StatefulWidget {
   const PopularPlaces({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -4,8 +4,8 @@ import 'package:travelApp/models/place.dart';
 
 class Location extends StatelessWidget {
   const Location({
-    Key key,
-    @required this.place,
+    Key? key,
+    required this.place,
   }) : super(key: key);
 
   final Place place;

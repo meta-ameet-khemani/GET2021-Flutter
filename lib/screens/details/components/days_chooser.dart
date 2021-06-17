@@ -5,7 +5,7 @@ import '../../../constants.dart';
 
 class DaysChooser extends StatefulWidget {
   const DaysChooser({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -86,7 +86,7 @@ class StepperButton extends StatelessWidget {
   final GestureTapCallback tapBack;
   final String title;
 
-  const StepperButton({Key key, @required this.tapBack, @required this.title})
+  const StepperButton({Key? key, required this.tapBack, required this.title})
       : super(key: key);
 
   @override

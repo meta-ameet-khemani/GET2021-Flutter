@@ -4,7 +4,7 @@ import '../constants.dart';
 
 class CommonButton extends StatelessWidget {
   final GestureTapCallback tapEvent;
-  const CommonButton({Key key, @required this.tapEvent}) : super(key: key);
+  const CommonButton({Key? key, required this.tapEvent}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

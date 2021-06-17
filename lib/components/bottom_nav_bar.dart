@@ -4,7 +4,7 @@ import 'nav_item.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

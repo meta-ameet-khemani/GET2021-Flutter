@@ -3,8 +3,8 @@ import '../../../models/place.dart';
 
 class PlaceImage extends StatelessWidget {
   const PlaceImage({
-    Key key,
-    @required this.place,
+    Key? key,
+    required this.place,
   }) : super(key: key);
 
   final Place place;

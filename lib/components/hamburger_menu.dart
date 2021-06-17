@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HamburgerMenu extends StatelessWidget {
   const HamburgerMenu({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

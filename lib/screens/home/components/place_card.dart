@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
+// import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 import '../../../models/place.dart';
 import '../../../constants.dart';
@@ -9,7 +9,7 @@ import 'liked_button.dart';
 class PlaceCard extends StatelessWidget {
   final Place place;
 
-  const PlaceCard({Key key, @required this.place}) : super(key: key);
+  const PlaceCard({Key? key, required this.place}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,16 +48,16 @@ class PlaceCard extends StatelessWidget {
                     LikedButton(),
                   ],
                 ),
-                SmoothStarRating(
-                  allowHalfRating: false,
-                  onRated: (v) {},
-                  starCount: 5,
-                  rating: place.rating,
-                  size: 20,
-                  isReadOnly: true,
-                  color: kRatingStarColor,
-                  borderColor: kRatingStarColor,
-                ),
+                // SmoothStarRating(
+                //   allowHalfRating: false,
+                //   onRated: (v) {},
+                //   starCount: 5,
+                //   rating: place.rating,
+                //   size: 20,
+                //   isReadOnly: true,
+                //   color: kRatingStarColor,
+                //   borderColor: kRatingStarColor,
+                // ),
               ],
             ),
           ),

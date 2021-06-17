@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class UseAvatar extends StatelessWidget {
   const UseAvatar({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

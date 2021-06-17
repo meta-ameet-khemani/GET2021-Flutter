@@ -12,7 +12,7 @@ import 'components/rating.dart';
 
 class DetailsScreen extends StatelessWidget {
   final Place place;
-  DetailsScreen({@required this.place});
+  DetailsScreen({required this.place});
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;

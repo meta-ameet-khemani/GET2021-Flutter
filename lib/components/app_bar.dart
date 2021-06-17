@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import '../constants.dart';
 
 AppBar buildAppBar(
-    {@required BuildContext context,
-    @required String title,
-    @required List<Widget> actions,
-    @required Widget leading}) {
+    {required BuildContext context,
+    required String title,
+    required List<Widget> actions,
+    required Widget leading}) {
   return AppBar(
     backgroundColor: Colors.transparent,
     elevation: 0,

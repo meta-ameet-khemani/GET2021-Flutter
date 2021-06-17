@@ -5,7 +5,7 @@ import '../../../responsive.dart';
 import 'grid_place_card.dart';
 
 class RecommendedPlaces extends StatelessWidget {
-  const RecommendedPlaces({Key key}) : super(key: key);
+  const RecommendedPlaces({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

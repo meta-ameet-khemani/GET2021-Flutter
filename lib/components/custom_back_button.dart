@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomBackButton extends StatelessWidget {
   final GestureTapCallback back;
-  const CustomBackButton({Key key, @required this.back}) : super(key: key);
+  const CustomBackButton({Key? key, required this.back}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

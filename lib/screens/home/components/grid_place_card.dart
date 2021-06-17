@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
+// import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:travelApp/models/place.dart';
 
 import '../../../constants.dart';
@@ -9,7 +9,7 @@ import 'liked_button.dart';
 class GridPlaceCard extends StatelessWidget {
   final Place place;
   final GestureTapCallback tapBack;
-  const GridPlaceCard({Key key, @required this.place, @required this.tapBack})
+  const GridPlaceCard({Key? key, required this.place, required this.tapBack})
       : super(key: key);
 
   @override
@@ -60,16 +60,16 @@ class GridPlaceCard extends StatelessWidget {
                           LikedButton(),
                         ],
                       ),
-                      SmoothStarRating(
-                        allowHalfRating: false,
-                        onRated: (v) {},
-                        starCount: 5,
-                        rating: place.rating,
-                        size: 15,
-                        isReadOnly: true,
-                        color: kRatingStarColor,
-                        borderColor: kRatingStarColor,
-                      ),
+                      // SmoothStarRating(
+                      //   allowHalfRating: false,
+                      //   onRated: (v) {},
+                      //   starCount: 5,
+                      //   rating: place.rating,
+                      //   size: 15,
+                      //   isReadOnly: true,
+                      //   color: kRatingStarColor,
+                      //   borderColor: kRatingStarColor,
+                      // ),
                     ],
                   ),
                 ),
