@@ -3,8 +3,8 @@ import './answer.dart';
 import './question.dart';
 
 class Quiz extends StatelessWidget {
-  final String question;
-  final List answers;
+  final String? question;
+  final List? answers;
   final Function goAhead;
 
   Quiz(this.question, this.answers, this.goAhead);
@@ -14,7 +14,7 @@ class Quiz extends StatelessWidget {
     return Column(
       children: <Widget>[
         Question(question),
-        ...(answers).map((answer) => Answer(answer, goAhead)).toList(),
+        ...answers!.map((answer) => Answer(answer, goAhead)).toList(),
       ],
     );
   }

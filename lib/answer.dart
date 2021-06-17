@@ -11,7 +11,7 @@ class Answer extends StatelessWidget {
     return RaisedButton(
       onPressed: () => goAhead(answer['marks']),
       child: Text(
-        answer['option'],
+        answer['option'] as String,
         style: TextStyle(
           fontWeight: FontWeight.bold,
         ),

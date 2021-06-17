@@ -17,7 +17,7 @@ class Result extends StatelessWidget {
           ),
         ),
         floatingActionButton: RaisedButton.icon(
-            onPressed: reset,
+            onPressed: reset as void Function()?,
             color: Colors.blueAccent,
             textColor: Colors.white,
             icon: Icon(Icons.reset_tv),
