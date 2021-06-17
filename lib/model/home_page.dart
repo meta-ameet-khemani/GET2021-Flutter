@@ -1,8 +1,8 @@
 class HomePageModel {
-  final String name;
-  final String contact;
-  final String location;
-  final String noOfPersons;
+  final String? name;
+  final String? contact;
+  final String? location;
+  final String? noOfPersons;
 
   HomePageModel({
     this.name,

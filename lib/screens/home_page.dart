@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:practice/model/home_page.dart';
 
 class HomePage extends StatefulWidget {
-  final String title;
+  final String? title;
   HomePage({this.title});
 
   @override
@@ -20,14 +20,14 @@ class _HomePageState extends State<HomePage> {
   ];
   TextEditingController _nameController = TextEditingController();
   TextEditingController _phoneController = TextEditingController();
-  String _workPlace;
-  String _noOfPersons;
+  String? _workPlace;
+  String? _noOfPersons;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(widget.title),
+        title: Text(widget.title!),
       ),
       body: Container(
         child: SingleChildScrollView(
@@ -90,11 +90,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   Container buildDropDown({
-    IconData icon,
-    String valueToSave,
-    String title,
-    List<String> items,
-    final Function submitChanges,
+    IconData? icon,
+    String? valueToSave,
+    required String title,
+    required List<String> items,
+    final Function? submitChanges,
   }) {
     Size screenSize = MediaQuery.of(context).size;
     return Container(
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                     fontSize: 20,
                   ),
                 ),
-                onChanged: (String value) => submitChanges(value),
+                onChanged: (String? value) => submitChanges!(value),
               ),
             ),
           ],
@@ -145,10 +145,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Container buildInputField(
-      {TextEditingController controller,
-      String title,
-      IconData icon,
-      TextInputType type}) {
+      {TextEditingController? controller,
+      String? title,
+      IconData? icon,
+      TextInputType? type}) {
     Size screenSize = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 25),
