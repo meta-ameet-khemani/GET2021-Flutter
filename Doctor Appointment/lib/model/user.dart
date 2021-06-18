@@ -1,9 +1,9 @@
 class User {
-  String image;
-  String date;
+  String? image;
+  String? date;
   User({this.image, this.date});
 
-  Map<String, String> toMap(User user) {
+  Map<String, String?> toMap(User user) {
     return {
       'image': user.image,
       'date': user.date,

@@ -4,7 +4,7 @@ import '../image_list.dart';
 
 class BooksToShow extends StatelessWidget {
   const BooksToShow({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

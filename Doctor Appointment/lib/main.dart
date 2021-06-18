@@ -16,8 +16,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  SharedPreferences _sharedPreferences;
-  String userName;
+  late SharedPreferences _sharedPreferences;
+  String? userName;
 
   @override
   void initState() {
@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     initializeSharedPreferences().whenComplete(() {
       setState(() {
-        userName = _sharedPreferences.get('user');
+        userName = _sharedPreferences.get('user') as String?;
         print('userName $userName');
       });
     });

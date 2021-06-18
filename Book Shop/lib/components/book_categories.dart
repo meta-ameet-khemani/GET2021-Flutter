@@ -14,7 +14,7 @@ class _BookCategoriesState extends State<BookCategories> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          FlatButton(
+          TextButton(
             onPressed: () {
               setState(() {
                 _currentCategoryIndex = 0;
@@ -30,7 +30,7 @@ class _BookCategoriesState extends State<BookCategories> {
                   : TextStyle(),
             ),
           ),
-          FlatButton(
+          TextButton(
             onPressed: () {
               setState(() {
                 _currentCategoryIndex = 1;
@@ -46,7 +46,7 @@ class _BookCategoriesState extends State<BookCategories> {
                   : TextStyle(),
             ),
           ),
-          FlatButton(
+          TextButton(
             onPressed: () {
               setState(() {
                 _currentCategoryIndex = 2;

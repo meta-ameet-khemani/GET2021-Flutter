@@ -10,7 +10,7 @@ class BookItemDetails extends StatefulWidget {
 
 class _BookItemDetailsState extends State<BookItemDetails>
     with TickerProviderStateMixin {
-  TabController _tabController;
+  late TabController _tabController;
   @override
   void initState() {
     super.initState();
@@ -28,35 +28,35 @@ class _BookItemDetailsState extends State<BookItemDetails>
 
   @override
   Widget build(BuildContext context) {
-    final List<Tab> myTabs = <Tab>[
-      Tab(
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            'Description',
-            style: TextStyle(
-              color: Colors.black,
-            ),
-          ),
-        ),
-      ),
-      Tab(
-        child: Text(
-          'Reviews (20)',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
-      Tab(
-        child: Text(
-          'Similliar',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
-    ];
+    // final List<Tab> myTabs = <Tab>[
+    //   Tab(
+    //     child: Align(
+    //       alignment: Alignment.centerLeft,
+    //       child: Text(
+    //         'Description',
+    //         style: TextStyle(
+    //           color: Colors.black,
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    //   Tab(
+    //     child: Text(
+    //       'Reviews (20)',
+    //       style: TextStyle(
+    //         color: Colors.black,
+    //       ),
+    //     ),
+    //   ),
+    //   Tab(
+    //     child: Text(
+    //       'Similliar',
+    //       style: TextStyle(
+    //         color: Colors.black,
+    //       ),
+    //     ),
+    //   ),
+    // ];
     return Scaffold(
       // appBar: AppBar(
       //   backgroundColor: Colors.red[200],

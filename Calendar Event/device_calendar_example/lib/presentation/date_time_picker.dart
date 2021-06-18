@@ -40,7 +40,7 @@ class DateTimePicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle valueStyle = Theme.of(context).textTheme.title;
+    final TextStyle valueStyle = Theme.of(context).textTheme.headline6;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
@@ -57,7 +57,7 @@ class DateTimePicker extends StatelessWidget {
             },
           ),
         ),
-        if (enableTime) ... [
+        if (enableTime) ...[
           const SizedBox(width: 12.0),
           Expanded(
             flex: 3,

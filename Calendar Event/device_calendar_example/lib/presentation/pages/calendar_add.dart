@@ -15,7 +15,7 @@ class _CalendarAddPageState extends State<CalendarAddPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   DeviceCalendarPlugin _deviceCalendarPlugin;
 
-  bool _autovalidate = false;
+  // bool _autovalidate = false;
   String _calendarName = '';
   ColorChoice _colorChoice;
   String _localAccountName = '';
@@ -32,7 +32,8 @@ class _CalendarAddPageState extends State<CalendarAddPage> {
         title: Text('Create Calendar'),
       ),
       body: Form(
-        autovalidate: _autovalidate,
+        // autovalidate: _autovalidate,
+        autovalidateMode: AutovalidateMode.always,
         key: _formKey,
         child: Container(
           padding: EdgeInsets.all(10),
@@ -82,7 +83,7 @@ class _CalendarAddPageState extends State<CalendarAddPage> {
         onPressed: () async {
           final FormState form = _formKey.currentState;
           if (!form.validate()) {
-            _autovalidate = true; // Start validating on every change.
+            // _autovalidate = true; // Start validating on every change.
             showInSnackBar('Please fix the errors in red before submitting.');
           } else {
             form.save();
@@ -112,7 +113,8 @@ class _CalendarAddPageState extends State<CalendarAddPage> {
   }
 
   void showInSnackBar(String value) {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(value)));
+    // _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(value)));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(value)));
   }
 }
 
@@ -131,16 +133,26 @@ enum ColorChoice {
 extension ColorChoiceExtension on ColorChoice {
   static Color _value(ColorChoice val) {
     switch (val) {
-      case ColorChoice.Red: return Colors.red;
-      case ColorChoice.Orange: return Colors.orange;
-      case ColorChoice.Yellow: return Colors.yellow;
-      case ColorChoice.Green: return Colors.green;
-      case ColorChoice.Blue: return Colors.blue;
-      case ColorChoice.Purple: return Colors.purple;
-      case ColorChoice.Brown: return Colors.brown;
-      case ColorChoice.Black: return Colors.black;
-      case ColorChoice.White: return Colors.white;
-      default: return Colors.red;
+      case ColorChoice.Red:
+        return Colors.red;
+      case ColorChoice.Orange:
+        return Colors.orange;
+      case ColorChoice.Yellow:
+        return Colors.yellow;
+      case ColorChoice.Green:
+        return Colors.green;
+      case ColorChoice.Blue:
+        return Colors.blue;
+      case ColorChoice.Purple:
+        return Colors.purple;
+      case ColorChoice.Brown:
+        return Colors.brown;
+      case ColorChoice.Black:
+        return Colors.black;
+      case ColorChoice.White:
+        return Colors.white;
+      default:
+        return Colors.red;
     }
   }
 

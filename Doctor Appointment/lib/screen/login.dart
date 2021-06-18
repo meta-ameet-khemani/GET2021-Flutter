@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                           labelText: 'Username/Email',
                         ),
                         validator: (name) {
-                          if (name.isEmpty) return '* Required';
+                          if (name!.isEmpty) return '* Required';
                           return null;
                         },
                       ),
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                           labelText: 'Password',
                         ),
                         validator: (value) {
-                          if (value.isEmpty) {
+                          if (value!.isEmpty) {
                             return "* Required";
                           } else
                             return null;
@@ -59,10 +59,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         onPressed: () async {
-                          if (!(_formKey.currentState.validate()))
-                            return 'Error';
+                          if (!(_formKey.currentState!.validate()))
+                            return;
                           else {
                             await Provider.of<LoginLogoutProvider>(
                               context,
@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                             fontSize: 22,
                           ),
                         ),
-                        color: Theme.of(context).primaryColor,
+                        // color: Theme.of(context).primaryColor,
                       ),
                     ),
                     Row(

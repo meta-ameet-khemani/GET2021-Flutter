@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class TabBarControllerWidget extends StatefulWidget {
-  const TabBarControllerWidget({Key key}) : super(key: key);
+  const TabBarControllerWidget({Key? key}) : super(key: key);
   @override
   _TabBarControllerWidgetState createState() => _TabBarControllerWidgetState();
 }
@@ -55,7 +55,7 @@ class _TabBarControllerWidgetState extends State<TabBarControllerWidget>
     ),
   ];
 
-  TabController _tabController;
+  TabController? _tabController;
 
   @override
   void initState() {
@@ -65,7 +65,7 @@ class _TabBarControllerWidgetState extends State<TabBarControllerWidget>
 
   @override
   void dispose() {
-    _tabController.dispose();
+    _tabController!.dispose();
     super.dispose();
   }
 
@@ -114,7 +114,7 @@ class TestScreen extends StatefulWidget {
 
 class _TestScreenState extends State<TestScreen>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  TabController? _tabController;
   @override
   void initState() {
     super.initState();

@@ -6,7 +6,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  PageController _controller;
+  late PageController _controller;
   List<Map<String, String>> imageList = List.generate(
       15,
       (index) => {
@@ -285,7 +285,7 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(
-                  image: AssetImage(imageList[index]['image']),
+                  image: AssetImage(imageList[index]['image']!),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -298,7 +298,7 @@ class _HomePageState extends State<HomePage> {
         Container(
           width: 150,
           child: Text(
-            imageList[index]['description'],
+            imageList[index]['description']!,
           ),
         ),
       ],

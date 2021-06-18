@@ -3,13 +3,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginLogoutProvider extends ChangeNotifier {
   bool _isLoggedIn = false;
-  String _userDetails;
+  String? _userDetails;
 
   bool get loggedIn => _isLoggedIn;
 
-  String get user => _userDetails;
+  String? get user => _userDetails;
 
-  Future<void> setLogin(bool loginStatus, {String user}) async {
+  Future<void> setLogin(bool loginStatus, {String? user}) async {
     _isLoggedIn = loginStatus;
     SharedPreferences _sharedPreferences =
         await SharedPreferences.getInstance();

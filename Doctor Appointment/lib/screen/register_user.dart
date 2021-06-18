@@ -38,7 +38,7 @@ class _RegisterUserState extends State<RegisterUser> {
                           labelText: 'Name',
                         ),
                         validator: (name) {
-                          if (name.isEmpty) return 'Name must not be empty';
+                          if (name!.isEmpty) return 'Name must not be empty';
                           return null;
                         },
                       ),
@@ -58,7 +58,7 @@ class _RegisterUserState extends State<RegisterUser> {
                           EmailValidator(
                             errorText: 'Please enter valid email',
                           ),
-                        ]),
+                        ]) as String? Function(String?)?,
                       ),
                     ),
                     Padding(
@@ -77,7 +77,7 @@ class _RegisterUserState extends State<RegisterUser> {
                             r"^\+?0[0-9]{10}$",
                             errorText: 'Please enter valid number',
                           ),
-                        ]),
+                        ]) as String? Function(String?)?,
                       ),
                     ),
                     Padding(
@@ -90,7 +90,7 @@ class _RegisterUserState extends State<RegisterUser> {
                           hintText: 'Enter Secure Password',
                         ),
                         validator: (value) {
-                          if (value.isEmpty) {
+                          if (value!.isEmpty) {
                             return "* Required";
                           } else if (value.length < 6) {
                             return "Password should be atleast 6 characters";
@@ -103,10 +103,9 @@ class _RegisterUserState extends State<RegisterUser> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         onPressed: () {
-                          if (!(_formKey.currentState.validate()))
-                            return 'Error';
+                          if (!(_formKey.currentState!.validate())) return;
                         },
                         child: Text(
                           'Register',
@@ -115,7 +114,7 @@ class _RegisterUserState extends State<RegisterUser> {
                             fontSize: 22,
                           ),
                         ),
-                        color: Theme.of(context).primaryColor,
+                        // color: Theme.of(context).primaryColor,
                       ),
                     ),
                   ],

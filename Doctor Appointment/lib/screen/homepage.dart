@@ -13,8 +13,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   DateFormat format = DateFormat('dd/MM/yyyy');
-  DateTime _todaysDate;
-  String _todaysDateString;
+  DateTime? _todaysDate;
+  String? _todaysDateString;
   List<User> _users = [];
   List<User> _finalUsers = [];
 
@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     filterUsers(_todaysDateString);
   }
 
-  void filterUsers(String todaysDate) {
+  void filterUsers(String? todaysDate) {
     _finalUsers = _users.where((user) => user.date == todaysDate).toList();
   }
 
@@ -60,14 +60,14 @@ class _HomePageState extends State<HomePage> {
             onPressed: () async {
               final pickedDate = await showDatePicker(
                 context: context,
-                initialDate: _todaysDate,
+                initialDate: _todaysDate!,
                 firstDate: DateTime.now(),
                 lastDate: DateTime.now().add(Duration(days: 6)),
               );
               if (pickedDate != null && _todaysDate != pickedDate) {
                 setState(() {
                   _todaysDate = pickedDate;
-                  _todaysDateString = format.format(_todaysDate);
+                  _todaysDateString = format.format(_todaysDate!);
                   filterUsers(_todaysDateString);
                 });
               }
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                               shape: BoxShape.circle,
                               image: DecorationImage(
                                 image: AssetImage(
-                                  _finalUsers[index].image,
+                                  _finalUsers[index].image!,
                                 ),
                                 fit: BoxFit.fill,
                               ),
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                           title: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(_finalUsers[index].date),
+                              Text(_finalUsers[index].date!),
                               Row(
                                 children: [
                                   Container(
