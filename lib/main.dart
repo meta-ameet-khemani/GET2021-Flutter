@@ -1,4 +1,7 @@
 import 'package:check_features/my-google_maps.dart';
+import 'package:check_features/remote_config_plugin.dart';
+import 'package:check_features/simple_animations_plugin.dart';
+import 'package:check_features/snapping_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
@@ -8,6 +11,7 @@ import 'shared_preference_demo.dart';
 import 'url_launcher.dart';
 import 'my_path_provider.dart';
 import 'local_notification.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 // 1. Initialize flutterLocalNotificationPlugin
 final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
@@ -15,6 +19,7 @@ final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
   // 2. Load all flutter's widget bindings
   WidgetsFlutterBinding.ensureInitialized();
@@ -67,7 +72,7 @@ class DemoPage extends StatefulWidget {
 
 class _DemoPageState extends State<DemoPage> {
   final PageController pageController = PageController(
-    initialPage: 6,
+    initialPage: 9,
   );
 
   @override
@@ -84,6 +89,9 @@ class _DemoPageState extends State<DemoPage> {
             PhotosList(),
             MyPathProvider(CounterStorage()),
             MyGoogleMapsDemo(),
+            SnappingSheetPlugin(),
+            SimpleAnimationPlugin(),
+            RemoteConfigPlugin(),
           ],
         ),
       ),
