@@ -281,6 +281,38 @@ class MainDrawer extends StatelessWidget {
             ),
             onTap: () => changeWidget('safearea'),
           ),
+          ListTile(
+            leading: Icon(Icons.image),
+            title: Text(
+              'FadeInImage Widget',
+              style: TextStyle(fontSize: 25),
+            ),
+            onTap: () => changeWidget('fadeinimage'),
+          ),
+          ListTile(
+            leading: Icon(Icons.cached),
+            title: Text(
+              'Cached Network Image',
+              style: TextStyle(fontSize: 25),
+            ),
+            onTap: () => changeWidget('cachednetworkimage'),
+          ),
+          ListTile(
+            leading: Icon(Icons.slideshow),
+            title: Text(
+              'Carousel Slider',
+              style: TextStyle(fontSize: 25),
+            ),
+            onTap: () => changeWidget('carouselslider'),
+          ),
+          ListTile(
+            leading: Icon(Icons.cached),
+            title: Text(
+              'Caching Example',
+              style: TextStyle(fontSize: 25),
+            ),
+            onTap: () => changeWidget('cachingExample'),
+          ),
         ],
       ),
     );

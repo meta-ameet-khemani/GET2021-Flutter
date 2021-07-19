@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'caching_example/caching_example.dart';
+import 'cached_network_image/cached_network_image_widget.dart';
+import 'carousel_slider/carousel_slider_widget.dart';
+import 'fade_in_image/fade_in_image_widget.dart';
 import 'safearea/safearea_widget.dart';
 import 'interactive_view/interactive_view.dart';
 import 'draggable/draggable_widget.dart';
@@ -46,6 +50,7 @@ class SingleAppForAll extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Homepage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -220,6 +225,26 @@ class _HomepageState extends State<Homepage> {
         case "safearea":
           widgetToShow = SafeAreaWidget();
           appBarTitle = "SafeArea Widget";
+          break;
+
+        case "fadeinimage":
+          widgetToShow = FadeInImageWidget();
+          appBarTitle = "FadeInImage Widget";
+          break;
+
+        case "cachednetworkimage":
+          widgetToShow = CachedNetworkImageWidget();
+          appBarTitle = "Cached Network Image Widget";
+          break;
+
+        case "carouselslider":
+          widgetToShow = CarouselSliderWidget();
+          appBarTitle = "Carousel Slider Widget";
+          break;
+
+        case "cachingExample":
+          widgetToShow = CachingExample();
+          appBarTitle = "Caching Example";
           break;
 
         default:
