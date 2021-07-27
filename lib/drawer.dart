@@ -313,6 +313,14 @@ class MainDrawer extends StatelessWidget {
             ),
             onTap: () => changeWidget('cachingExample'),
           ),
+          ListTile(
+            leading: Icon(Icons.slow_motion_video),
+            title: Text(
+              'Sliver Example',
+              style: TextStyle(fontSize: 25),
+            ),
+            onTap: () => changeWidget('sliverExample'),
+          ),
         ],
       ),
     );

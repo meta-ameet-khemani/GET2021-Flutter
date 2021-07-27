@@ -36,6 +36,7 @@ import './basic_widgets/stack.dart';
 import './basic_widgets/text.dart';
 import './drawer.dart';
 import 'input_and_selection/input_and_selection.dart';
+import 'sliver_example/sliver_example.dart';
 
 void main() {
   runApp(SingleAppForAll());
@@ -245,6 +246,11 @@ class _HomepageState extends State<Homepage> {
         case "cachingExample":
           widgetToShow = CachingExample();
           appBarTitle = "Caching Example";
+          break;
+
+        case "sliverExample":
+          widgetToShow = SliverExample();
+          appBarTitle = "Sliver Example";
           break;
 
         default:
